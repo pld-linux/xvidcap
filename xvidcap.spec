@@ -36,7 +36,7 @@ Program nie u¿ywa ¿adnego specjanego sterownika sprzêtowego do dostêpu
 do karty graficznej - po prostu pobiera prostok±tne obszary od serwera
 X. Oznacza to, ¿e trzeba mieæ szybk± maszynê (>= 133 MHz) i szybki
 twardy dysk. Du¿e ramki (np. 384x288, czyli 1/2 PAL) z du¿ymi FPS
-mo¿na przechwytywaæ tylko na bardzo bardzo szybkich systematch :-)
+mo¿na przechwytywaæ tylko na bardzo bardzo szybkich systemach :-)
 
 %prep
 %setup -q
