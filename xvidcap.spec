@@ -32,11 +32,11 @@ with very very fast systems :-)
 Ten pakiet s³u¿y do przechwytywania ekranu do pojedynczych plików z
 ka¿d± ramk± lub strumienia MPEG.
 
-Program nie u¿ywa ¿adnego specjalnego sterownika sprzêtowego do dostêpu
-do karty graficznej - po prostu pobiera prostok±tne obszary od serwera
-X. Oznacza to, ¿e trzeba mieæ szybk± maszynê (>= 133 MHz) i szybki
-twardy dysk. Du¿e ramki (np. 384x288, czyli 1/2 PAL) z du¿ymi FPS
-mo¿na przechwytywaæ tylko na bardzo bardzo szybkich systemach :-)
+Program nie u¿ywa ¿adnego specjalnego sterownika sprzêtowego do
+dostêpu do karty graficznej - po prostu pobiera prostok±tne obszary od
+serwera X. Oznacza to, ¿e trzeba mieæ szybk± maszynê (>= 133 MHz) i
+szybki twardy dysk. Du¿e ramki (np. 384x288, czyli 1/2 PAL) z du¿ymi
+FPS mo¿na przechwytywaæ tylko na bardzo bardzo szybkich systemach :-)
 
 %prep
 %setup -q
