@@ -1,21 +1,23 @@
 Summary:	XVidCap - Video Capture for X
 Summary(pl):	XVidCap - przechwytywanie obrazu dla X
 Name:		xvidcap
-Version:	1.1.3
-Release:	5
+Version:	1.1.4
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}.tar.gz
-# Source0-md5:	ea896ffd35d6fe6d2abf51b38605f5fd
+# Source0-md5:	b2db4f832f3597742e56fb4ff465e9a0
 Patch0:		%{name}-DESTDIR.patch
-Patch1:		%{name}-use-ffmpeg-0.4.9.patch
+Patch1:		%{name}-ffmpeg.patch
+Patch2:		%{name}-xt.patch
 URL:		http://xvidcap.sourceforge.net/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	ffmpeg-devel >= 0.4.9
-BuildRequires:	gtk+2-devel
+BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806
+BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
+BuildRequires:	pkgconfig
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,7 +44,8 @@ FPS mo¿na przechwytywaæ tylko na bardzo bardzo szybkich systemach :-)
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p0
+%patch1 -p1
+%patch2 -p1
 
 %build
 %{__aclocal}
