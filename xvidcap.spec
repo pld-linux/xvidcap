@@ -62,7 +62,7 @@ install -d $RPM_BUILD_ROOT%{_defaultdocdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-	
+
 echo '.so xvidcap.1' > $RPM_BUILD_ROOT%{_mandir}/man1/gvidcap.1
 
 rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}_%{version}/INSTALL
