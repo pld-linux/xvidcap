@@ -1,3 +1,8 @@
+#
+# TODO:
+# - fix the build (breaks while linking - doesn't have lame funcitons
+#	probabely have to add -llame
+#
 Summary:	XVidCap - Video Capture for X
 Summary(pl):	XVidCap - przechwytywanie obrazu dla X
 Name:		xvidcap
@@ -16,6 +21,7 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	pkgconfig
 BuildRequires:	zlib-devel
+BuildRequires:	xorg-lib-libXmu-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
