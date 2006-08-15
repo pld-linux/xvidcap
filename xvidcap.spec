@@ -1,8 +1,3 @@
-#
-# TODO:
-# - fix the build (breaks while linking - doesn't have lame funcitons
-#	probabely have to add -llame
-#
 Summary:	XVidCap - Video Capture for X
 Summary(pl):	XVidCap - przechwytywanie obrazu dla X
 Name:		xvidcap
@@ -53,7 +48,7 @@ FPS mo¿na przechwytywaæ tylko na bardzo bardzo szybkich systemach :-)
 %{__autoheader}
 %{__automake}
 %configure \
-	--with-gtk2
+	--without-forced-embedded-ffmpeg
 %{__make}
 
 %install
@@ -76,5 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{_defaultdocdir}/%{name}-%{version}
 %attr(755,root,root) %{_bindir}/*
+%dir %{_datadir}/%{name}
+%dir %{_datadir}/%{name}/glade
 %{_datadir}/%{name}/glade/gnome-xvidcap.glade
 %{_datadir}/%{name}/glade/xvidcap_logo.png
