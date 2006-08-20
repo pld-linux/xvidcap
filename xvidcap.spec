@@ -15,8 +15,8 @@ BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	pkgconfig
-BuildRequires:	zlib-devel
 BuildRequires:	xorg-lib-libXmu-devel
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -53,7 +53,7 @@ FPS mo¿na przechwytywaæ tylko na bardzo bardzo szybkich systemach :-)
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_defaultdocdir},%{_mandir}/man1/}
+install -d $RPM_BUILD_ROOT{%{_defaultdocdir},%{_mandir}/man1}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
