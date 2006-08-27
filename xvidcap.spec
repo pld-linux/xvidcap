@@ -1,12 +1,12 @@
 Summary:	XVidCap - Video Capture for X
 Summary(pl):	XVidCap - przechwytywanie obrazu dla X
 Name:		xvidcap
-Version:	1.1.4pre3
+Version:	1.1.4rc1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}.tar.gz
-# Source0-md5:	d3364d12dab30902baa8da535604947f
+# Source0-md5:	b7cd1a294773e9542aa64baea1a8cc7d
 URL:		http://xvidcap.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
