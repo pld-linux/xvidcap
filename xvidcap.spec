@@ -75,3 +75,4 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/glade
 %{_datadir}/%{name}/glade/gnome-xvidcap.glade
 %{_datadir}/%{name}/glade/xvidcap_logo.png
+%{_mandir}/man1/xvidcap.1*
