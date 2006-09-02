@@ -53,14 +53,14 @@ FPS mo¿na przechwytywaæ tylko na bardzo bardzo szybkich systemach :-)
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_defaultdocdir},%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{%{_docdir},%{_mandir}/man1}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -rf $RPM_BUILD_ROOT%{_prefix}/doc/%{name}/INSTALL
 mv $RPM_BUILD_ROOT%{_prefix}/doc/%{name} \
-      $RPM_BUILD_ROOT%{_defaultdocdir}/%{name}-%{version}
+      $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
 
 %find_lang %{name}
 
@@ -69,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc %{_defaultdocdir}/%{name}-%{version}
+%doc %{_docdir}/%{name}-%{version}
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/glade
