@@ -1,12 +1,17 @@
+#
+# TODO: gnome docs
+#
 Summary:	XVidCap - Video Capture for X
 Summary(pl):	XVidCap - przechwytywanie obrazu dla X
 Name:		xvidcap
-Version:	1.1.4rc1
+Version:	1.1.4
 Release:	1
+Epoch:		1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}.tar.gz
-# Source0-md5:	b7cd1a294773e9542aa64baea1a8cc7d
+# Source0-md5:	ba8759f40977c4dd2f9afd6ca3cca8d8
+Patch0:		%{name}-destdir.patch
 URL:		http://xvidcap.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -41,6 +46,7 @@ FPS mo¿na przechwytywaæ tylko na bardzo bardzo szybkich systemach :-)
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__aclocal}
@@ -58,10 +64,6 @@ install -d $RPM_BUILD_ROOT{%{_docdir},%{_mandir}/man1}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_prefix}/doc/%{name}/INSTALL
-mv $RPM_BUILD_ROOT%{_prefix}/doc/%{name} \
-      $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
-
 %find_lang %{name}
 
 %clean
@@ -69,10 +71,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc %{_docdir}/%{name}-%{version}
+%doc ChangeLog README TODO.tasks 
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
+%attr(755,root,root) %{_datadir}/%{name}/ppm2mpeg.sh
 %dir %{_datadir}/%{name}/glade
 %{_datadir}/%{name}/glade/gnome-xvidcap.glade
 %{_datadir}/%{name}/glade/xvidcap_logo.png
 %{_mandir}/man1/xvidcap.1*
+%lang(de) %{_mandir}/de/man1/xvidcap.1*
+%lang(es) %{_mandir}/es/man1/xvidcap.1*
+%lang(it) %{_mandir}/it/man1/xvidcap.1*
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/%{name}.png
