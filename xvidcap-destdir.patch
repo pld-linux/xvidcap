@@ -1,0 +1,18 @@
+diff -ruN xvidcap-1.1.4./Makefile.am xvidcap-1.1.4/Makefile.am
+--- xvidcap-1.1.4./Makefile.am	2006-10-12 15:03:38.000000000 +0200
++++ xvidcap-1.1.4/Makefile.am	2006-10-30 14:52:35.386883203 +0100
+@@ -46,10 +46,10 @@
+     ( test -f $(distdir)/ffmpeg/config.log && rm $(distdir)/ffmpeg/config.log ) || echo "no ffmpeg config.log"
+ 
+ install-exec-hook:
+-	mkdir $(datadir)/pixmaps ; \
+-	cp $(top_srcdir)/xvidcap.png $(datadir)/pixmaps/ ; \
+-	mkdir $(datadir)/applications ; \
+-	cp $(top_srcdir)/xvidcap.desktop $(datadir)/applications/
++	mkdir $(DESTDIR)$(datadir)/pixmaps ; \
++	cp $(top_srcdir)/xvidcap.png $(DESTDIR)$(datadir)/pixmaps/ ; \
++	mkdir $(DESTDIR)$(datadir)/applications ; \
++	cp $(top_srcdir)/xvidcap.desktop $(DESTDIR)$(datadir)/applications/
+ 
+ uninstall-hook:
+ 	rm $(datadir)/pixmaps/xvidcap.png ; \
