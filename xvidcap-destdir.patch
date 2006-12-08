@@ -16,3 +16,14 @@ diff -ruN xvidcap-1.1.4./Makefile.am xvidcap-1.1.4/Makefile.am
  
  uninstall-hook:
  	rm $(datadir)/pixmaps/xvidcap.png ; \
+--- xvidcap-1.1.4p1/Makefile.am~	2006-12-08 19:29:24.208850545 +0200
++++ xvidcap-1.1.4p1/Makefile.am	2006-12-08 19:39:09.002045091 +0200
+@@ -51,7 +51,7 @@
+ 	cp $(top_srcdir)/xvidcap.desktop $(DESTDIR)$(datadir)/applications/
+ 
+ install-data-hook:
+-	chmod 755 $(datadir)/xvidcap/ppm2mpeg.sh
++	chmod 755 $(DESTDIR)$(datadir)/xvidcap/ppm2mpeg.sh
+ 
+ uninstall-hook:
+ 	rm $(datadir)/pixmaps/xvidcap.png ; \
