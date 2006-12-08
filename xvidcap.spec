@@ -1,4 +1,3 @@
-#
 # TODO: gnome docs
 #
 Summary:	XVidCap - Video Capture for X
@@ -20,7 +19,6 @@ BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	pkgconfig
-BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -71,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc ChangeLog README TODO.tasks 
+%doc ChangeLog README TODO.tasks
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
 %attr(755,root,root) %{_datadir}/%{name}/ppm2mpeg.sh
