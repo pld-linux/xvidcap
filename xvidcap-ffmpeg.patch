@@ -1,0 +1,18 @@
+--- x/src/xtoffmpeg.c.org	2007-01-03 00:01:20.316092750 +0100
++++ x/src/xtoffmpeg.c	2007-01-03 00:02:52.409848250 +0100
+@@ -53,12 +53,9 @@
+ // ffmpeg stuff
+ #include <ffmpeg/avcodec.h>
+ #include <ffmpeg/avformat.h>
+-#include "swscale.h"
+-#include "rgb2rgb.h"
+-#include "framehook.h"
+-#include "dsputil.h"
+-#include "opt.h"
+-#include "fifo.h"
++#include <ffmpeg/swscale.h>
++#include <ffmpeg/opt.h>
++#include <ffmpeg/fifo.h>
+ 
+ #define PIX_FMT_ARGB32 PIX_FMT_RGBA32   // this is just my personal
+ // convenience
