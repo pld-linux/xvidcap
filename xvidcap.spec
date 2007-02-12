@@ -2,7 +2,7 @@
 # TODO: gnome docs
 #
 Summary:	XVidCap - Video Capture for X
-Summary(pl):	XVidCap - przechwytywanie obrazu dla X
+Summary(pl.UTF-8):   XVidCap - przechwytywanie obrazu dla X
 Name:		xvidcap
 Version:	1.1.4p1
 Release:	3
@@ -36,15 +36,15 @@ means you need a fast machine (>= 133 MHz) and a fast harddrive. Big
 frames (e.g. 384x288 = 1/2 PAL) at a high FPS rate are only possible
 with very very fast systems :-)
 
-%description -l pl
-Ten pakiet s≥uøy do przechwytywania ekranu do pojedynczych plikÛw z
-kaød± ramk± lub strumienia MPEG.
+%description -l pl.UTF-8
+Ten pakiet s≈Çu≈ºy do przechwytywania ekranu do pojedynczych plik√≥w z
+ka≈ºdƒÖ ramkƒÖ lub strumienia MPEG.
 
-Program nie uøywa øadnego specjalnego sterownika sprzÍtowego do
-dostÍpu do karty graficznej - po prostu pobiera prostok±tne obszary od
-serwera X. Oznacza to, øe trzeba mieÊ szybk± maszynÍ (>= 133 MHz) i
-szybki twardy dysk. Duøe ramki (np. 384x288, czyli 1/2 PAL) z duøymi
-FPS moøna przechwytywaÊ tylko na bardzo bardzo szybkich systemach :-)
+Program nie u≈ºywa ≈ºadnego specjalnego sterownika sprzƒôtowego do
+dostƒôpu do karty graficznej - po prostu pobiera prostokƒÖtne obszary od
+serwera X. Oznacza to, ≈ºe trzeba mieƒá szybkƒÖ maszynƒô (>= 133 MHz) i
+szybki twardy dysk. Du≈ºe ramki (np. 384x288, czyli 1/2 PAL) z du≈ºymi
+FPS mo≈ºna przechwytywaƒá tylko na bardzo bardzo szybkich systemach :-)
 
 %prep
 %setup -q
