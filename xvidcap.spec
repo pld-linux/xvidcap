@@ -2,7 +2,7 @@
 # TODO: gnome docs
 #
 Summary:	XVidCap - Video Capture for X
-Summary(pl.UTF-8):   XVidCap - przechwytywanie obrazu dla X
+Summary(pl.UTF-8):	XVidCap - przechwytywanie obrazu dla X
 Name:		xvidcap
 Version:	1.1.4p1
 Release:	3
