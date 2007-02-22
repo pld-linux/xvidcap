@@ -1,16 +1,19 @@
 #
 # TODO: gnome docs
 #
+
+%define		_subver		rc1
+
 Summary:	XVidCap - Video Capture for X
 Summary(pl.UTF-8):	XVidCap - przechwytywanie obrazu dla X
 Name:		xvidcap
-Version:	1.1.4p1
-Release:	3
+Version:	1.1.5
+Release:	0.%{_subver}.1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}.tar.gz
-# Source0-md5:	35a038dba807f6e09f1d9dd2bc0c5719
+Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}%{_subver}.tar.gz
+# Source0-md5:	cd6bece3c31ffdabc7b7d343f72330a5
 Patch0:		%{name}-destdir.patch
 Patch1:		%{name}-ffmpeg.patch
 URL:		http://xvidcap.sourceforge.net/
@@ -47,17 +50,17 @@ szybki twardy dysk. Duże ramki (np. 384x288, czyli 1/2 PAL) z dużymi
 FPS można przechwytywać tylko na bardzo bardzo szybkich systemach :-)
 
 %prep
-%setup -q
-%patch0 -p1
-%patch1 -p1
+%setup -q -n %{name}-%{version}%{_subver}
+#%patch0 -p1
+#%patch1 -p1
 
 %build
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure \
-	--without-forced-embedded-ffmpeg
+%configure
+#	--without-forced-embedded-ffmpeg
 %{__make}
 
 %install
