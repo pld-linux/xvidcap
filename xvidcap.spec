@@ -14,8 +14,6 @@ License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}%{_subver}.tar.gz
 # Source0-md5:	cd6bece3c31ffdabc7b7d343f72330a5
-Patch0:		%{name}-destdir.patch
-Patch1:		%{name}-ffmpeg.patch
 URL:		http://xvidcap.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -51,8 +49,6 @@ FPS można przechwytywać tylko na bardzo bardzo szybkich systemach :-)
 
 %prep
 %setup -q -n %{name}-%{version}%{_subver}
-#%patch0 -p1
-#%patch1 -p1
 
 %build
 %{__aclocal}
@@ -60,7 +56,6 @@ FPS można przechwytywać tylko na bardzo bardzo szybkich systemach :-)
 %{__autoheader}
 %{__automake}
 %configure
-#	--without-forced-embedded-ffmpeg
 %{__make}
 
 %install
