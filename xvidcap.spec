@@ -1,5 +1,7 @@
 #
 # TODO: gnome docs
+# - package all those .png files ? certainly not, so what shold we do with them ?
+#   remove before installing ? remove after installing ?
 #
 
 %define		_subver		rc1
@@ -85,3 +87,5 @@ rm -rf $RPM_BUILD_ROOT
 %lang(it) %{_mandir}/it/man1/xvidcap.1*
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.png
+%{_datadir}/%{name}/%{name}.desktop
+%{_datadir}/%{name}/%{name}.png
