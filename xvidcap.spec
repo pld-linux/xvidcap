@@ -11,14 +11,17 @@ Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}.tar.gz
 # Source0-md5:	35a038dba807f6e09f1d9dd2bc0c5719
 Patch0:		%{name}-destdir.patch
+Patch1:		%{name}-ffmpeg.patch
 URL:		http://xvidcap.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806
 BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	libglade2-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	pkgconfig
+BuildRequires:	scrollkeeper
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -45,6 +48,7 @@ FPS mo¿na przechwytywaæ tylko na bardzo bardzo szybkich systemach :-)
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal}
@@ -69,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc ChangeLog README TODO.tasks
+%doc AUTHORS ChangeLog README TODO.tasks
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
 %attr(755,root,root) %{_datadir}/%{name}/ppm2mpeg.sh
