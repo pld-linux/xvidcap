@@ -19,6 +19,7 @@ BuildRequires:	automake
 BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libjpeg-devel
+BuildRequires:	libglade2-devel
 BuildRequires:	libpng-devel
 BuildRequires:	pkgconfig
 BuildRequires:	scrollkeeper
