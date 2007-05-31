@@ -1,18 +1,10 @@
---- x/src/xtoffmpeg.c.org	2007-01-03 00:01:20.316092750 +0100
-+++ x/src/xtoffmpeg.c	2007-01-03 00:02:52.409848250 +0100
-@@ -53,12 +53,9 @@
+--- xvidcap-1.1.6/src/xtoffmpeg.c	2007-05-31 02:33:43.914950919 +0200
++++ xvidcap-1.1.6/src/xtoffmpeg.c-new	2007-05-31 02:34:18.800158493 +0200
+@@ -58,7 +58,6 @@
  // ffmpeg stuff
  #include <ffmpeg/avcodec.h>
  #include <ffmpeg/avformat.h>
--#include "swscale.h"
--#include "rgb2rgb.h"
--#include "framehook.h"
--#include "dsputil.h"
--#include "opt.h"
--#include "fifo.h"
-+#include <ffmpeg/swscale.h>
-+#include <ffmpeg/opt.h>
-+#include <ffmpeg/fifo.h>
- 
- #define PIX_FMT_ARGB32 PIX_FMT_RGBA32   // this is just my personal
- // convenience
+-#include <ffmpeg/dsputil.h>
+ #include <ffmpeg/swscale.h>
+ #include <ffmpeg/rgb2rgb.h>
+ #include <ffmpeg/fifo.h>
