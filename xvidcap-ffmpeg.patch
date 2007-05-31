@@ -1,0 +1,10 @@
+--- xvidcap-1.1.6/src/xtoffmpeg.c	2007-05-31 02:33:43.914950919 +0200
++++ xvidcap-1.1.6/src/xtoffmpeg.c-new	2007-05-31 02:34:18.800158493 +0200
+@@ -58,7 +58,6 @@
+ // ffmpeg stuff
+ #include <ffmpeg/avcodec.h>
+ #include <ffmpeg/avformat.h>
+-#include <ffmpeg/dsputil.h>
+ #include <ffmpeg/swscale.h>
+ #include <ffmpeg/rgb2rgb.h>
+ #include <ffmpeg/fifo.h>

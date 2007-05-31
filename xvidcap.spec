@@ -1,21 +1,27 @@
+# TODO: gnome docs
+#
 Summary:	XVidCap - Video Capture for X
 Summary(pl):	XVidCap - przechwytywanie obrazu dla X
 Name:		xvidcap
-Version:	1.1.3
-Release:	3
+Version:	1.1.4p1
+Release:	2
+Epoch:		1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}.tar.gz
-# Source0-md5:	ea896ffd35d6fe6d2abf51b38605f5fd
-Patch0:		%{name}-DESTDIR.patch
-Patch1:		%{name}-use-ffmpeg-0.4.9.patch
+# Source0-md5:	35a038dba807f6e09f1d9dd2bc0c5719
+Patch0:		%{name}-destdir.patch
+Patch1:		%{name}-ffmpeg.patch
 URL:		http://xvidcap.sourceforge.net/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	ffmpeg-devel
-BuildRequires:	gtk+2-devel
+BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806
+BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	libglade2-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
+BuildRequires:	pkgconfig
+BuildRequires:	scrollkeeper
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,7 +48,7 @@ FPS mo¿na przechwytywaæ tylko na bardzo bardzo szybkich systemach :-)
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p0
+%patch1 -p1
 
 %build
 %{__aclocal}
@@ -50,27 +56,33 @@ FPS mo¿na przechwytywaæ tylko na bardzo bardzo szybkich systemach :-)
 %{__autoheader}
 %{__automake}
 %configure \
-	--with-gtk2
+	--without-forced-embedded-ffmpeg
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_defaultdocdir}
+install -d $RPM_BUILD_ROOT{%{_docdir},%{_mandir}/man1}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-	
-echo '.so xvidcap.1' > $RPM_BUILD_ROOT%{_mandir}/man1/gvidcap.1
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}_%{version}/INSTALL
-mv $RPM_BUILD_ROOT%{_datadir}/doc/%{name}_%{version} \
-	$RPM_BUILD_ROOT%{_defaultdocdir}/%{name}-%{version}
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc %{_defaultdocdir}/%{name}-%{version}
+%doc AUTHORS ChangeLog README TODO.tasks
 %attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%dir %{_datadir}/%{name}
+%attr(755,root,root) %{_datadir}/%{name}/ppm2mpeg.sh
+%dir %{_datadir}/%{name}/glade
+%{_datadir}/%{name}/glade/gnome-xvidcap.glade
+%{_datadir}/%{name}/glade/xvidcap_logo.png
+%{_mandir}/man1/xvidcap.1*
+%lang(de) %{_mandir}/de/man1/xvidcap.1*
+%lang(es) %{_mandir}/es/man1/xvidcap.1*
+%lang(it) %{_mandir}/it/man1/xvidcap.1*
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/%{name}.png
