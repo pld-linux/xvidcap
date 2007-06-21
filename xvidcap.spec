@@ -14,7 +14,7 @@ Patch0:		%{name}-ffmpeg.patch
 URL:		http://xvidcap.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806
+BuildRequires:	ffmpeg-devel >= 0.4.9-3.20070609
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libglade2-devel
 BuildRequires:	libjpeg-devel
