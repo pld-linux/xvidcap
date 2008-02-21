@@ -4,17 +4,18 @@
 # Conditional build:
 %bcond_without	system_ffmpeg		# use system ffmpeg
 #
+%define		subver	rc1
+%define		rel		0.1
 Summary:	XVidCap - Video Capture for X
 Summary(pl.UTF-8):	XVidCap - przechwytywanie obrazu dla X
 Name:		xvidcap
-Version:	1.1.6
-Release:	3
+Version:	1.1.7
+Release:	0.%{subver}.%{rel}
 Epoch:		1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}.tar.gz
-# Source0-md5:	c6add7ae452e5cecbdda6e55e7c67cdb
-Patch0:		%{name}-ffmpeg.patch
+Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}%{subver}.tar.gz
+# Source0-md5:	449ee23b6ea171f090b9de48ffefb364
 URL:		http://xvidcap.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -50,8 +51,7 @@ szybki twardy dysk. Duże ramki (np. 384x288, czyli 1/2 PAL) z dużymi
 FPS można przechwytywać tylko na bardzo bardzo szybkich systemach :-)
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n %{name}-1.1.6
 
 %build
 %{__aclocal}
