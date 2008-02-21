@@ -1,5 +1,8 @@
+# TODO
+# - gnome docs
 #
-# TODO: gnome docs
+# Conditional build:
+%bcond_without	system_ffmpeg		# use system ffmpeg
 #
 Summary:	XVidCap - Video Capture for X
 Summary(pl.UTF-8):	XVidCap - przechwytywanie obrazu dla X
@@ -15,10 +18,10 @@ Patch0:		%{name}-ffmpeg.patch
 URL:		http://xvidcap.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806
+%{?with_system_ffmpeg:BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806}
 BuildRequires:	gtk+2-devel >= 2.0.0
-BuildRequires:	libjpeg-devel
 BuildRequires:	libglade2-devel
+BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	pkgconfig
 BuildRequires:	scrollkeeper
@@ -56,7 +59,7 @@ FPS można przechwytywać tylko na bardzo bardzo szybkich systemach :-)
 %{__autoheader}
 %{__automake}
 %configure \
-	--without-forced-embedded-ffmpeg
+	%{?with_system_ffmpeg:--without-forced-embedded-ffmpeg}
 %{__make}
 
 %install
@@ -73,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc ChangeLog README TODO.tasks 
+%doc ChangeLog README TODO.tasks
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
 %attr(755,root,root) %{_datadir}/%{name}/ppm2mpeg.sh
