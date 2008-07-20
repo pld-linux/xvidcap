@@ -1,24 +1,21 @@
-# TODO
-# - gnome docs
 #
 # Conditional build:
 %bcond_without	system_ffmpeg		# use system ffmpeg
 #
-%define		subver	rc1
-%define		rel		0.1
 Summary:	XVidCap - Video Capture for X
 Summary(pl.UTF-8):	XVidCap - przechwytywanie obrazu dla X
 Name:		xvidcap
 Version:	1.1.7
-Release:	0.%{subver}.%{rel}
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}%{subver}.tar.gz
-# Source0-md5:	449ee23b6ea171f090b9de48ffefb364
+Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}.tar.gz
+# Source0-md5:	b39a682d3ef9fcbf424af771936780e2
 URL:		http://xvidcap.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
+BuildRequires:	dbus-glib-devel
 %{?with_system_ffmpeg:BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806}
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libglade2-devel
@@ -51,7 +48,7 @@ szybki twardy dysk. Duże ramki (np. 384x288, czyli 1/2 PAL) z dużymi
 FPS można przechwytywać tylko na bardzo bardzo szybkich systemach :-)
 
 %prep
-%setup -q -n %{name}-1.1.6
+%setup -q
 
 %build
 %{__aclocal}
@@ -69,7 +66,7 @@ install -d $RPM_BUILD_ROOT{%{_docdir},%{_mandir}/man1}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{name}
+%find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -83,9 +80,16 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/glade
 %{_datadir}/%{name}/glade/gnome-xvidcap.glade
 %{_datadir}/%{name}/glade/xvidcap_logo.png
+%{_datadir}/dbus-1/services/net.jarre_de_the.Xvidcap.service
 %{_mandir}/man1/xvidcap.1*
+%{_mandir}/man1/xvidcap-dbus-client.1*
 %lang(de) %{_mandir}/de/man1/xvidcap.1*
+%lang(de) %{_mandir}/de/man1/xvidcap-dbus-client.1*
 %lang(es) %{_mandir}/es/man1/xvidcap.1*
 %lang(it) %{_mandir}/it/man1/xvidcap.1*
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.png
+%{_omf_dest_dir}/xvidcap/xvidcap-C.omf
+%lang(de) %{_omf_dest_dir}/xvidcap/xvidcap-de.omf
+%lang(es) %{_omf_dest_dir}/xvidcap/xvidcap-es.omf
+%lang(it) %{_omf_dest_dir}/xvidcap/xvidcap-it.omf
