@@ -6,7 +6,7 @@ Summary:	XVidCap - Video Capture for X
 Summary(pl.UTF-8):	XVidCap - przechwytywanie obrazu dla X
 Name:		xvidcap
 Version:	1.1.7
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -22,9 +22,12 @@ BuildRequires:	libglade2-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(find_lang) >= 1.23
+BuildRequires:	rpmbuild(macros) >= 1.198
 BuildRequires:	scrollkeeper
 BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	zlib-devel
+Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -66,10 +69,16 @@ install -d $RPM_BUILD_ROOT{%{_docdir},%{_mandir}/man1}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{name} --with-gnome
+%find_lang %{name} --with-gnome --with-omf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%scrollkeeper_update_post
+
+%postun
+%scrollkeeper_update_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -89,7 +98,3 @@ rm -rf $RPM_BUILD_ROOT
 %lang(it) %{_mandir}/it/man1/xvidcap.1*
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.png
-%{_omf_dest_dir}/xvidcap/xvidcap-C.omf
-%lang(de) %{_omf_dest_dir}/xvidcap/xvidcap-de.omf
-%lang(es) %{_omf_dest_dir}/xvidcap/xvidcap-es.omf
-%lang(it) %{_omf_dest_dir}/xvidcap/xvidcap-it.omf
