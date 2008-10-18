@@ -1,10 +1,68 @@
---- xvidcap-1.1.6/src/xtoffmpeg.c	2007-05-31 02:33:43.914950919 +0200
-+++ xvidcap-1.1.6/src/xtoffmpeg.c-new	2007-05-31 02:34:18.800158493 +0200
-@@ -58,7 +58,6 @@
+diff -urN xvidcap-1.1.7/src/codecs.c xvidcap-1.1.7.new/src/codecs.c
+--- xvidcap-1.1.7/src/codecs.c	2008-05-26 00:01:53.000000000 +0200
++++ xvidcap-1.1.7.new/src/codecs.c	2008-10-18 12:38:26.000000000 +0200
+@@ -43,8 +43,8 @@
+ #include <locale.h>
+ 
+ #ifdef USE_FFMPEG
+-#include <ffmpeg/avcodec.h>
+-#include <ffmpeg/avformat.h>
++#include <libavcodec/avcodec.h>
++#include <libavformat/avformat.h>
+ #endif     // USE_FFMPEG
+ 
+ #include "app_data.h"
+diff -urN xvidcap-1.1.7/src/main.c xvidcap-1.1.7.new/src/main.c
+--- xvidcap-1.1.7/src/main.c	2008-05-26 00:01:54.000000000 +0200
++++ xvidcap-1.1.7.new/src/main.c	2008-10-18 13:07:44.000000000 +0200
+@@ -45,7 +45,7 @@
+ #include <locale.h>
+ 
+ #ifdef USE_FFMPEG
+-#include <ffmpeg/avcodec.h>
++#include <libavcodec/avcodec.h>
+ #endif     // USE_FFMPEG
+ 
+ #include "control.h"
+@@ -217,9 +217,6 @@
+ 
+     if (app)
+         xvc_appdata_free (app);
+-#ifdef USE_FFMPEG
+-    av_free_static ();
+-#endif
+ }
+ 
+ /**
+diff -urN xvidcap-1.1.7/src/xtoffmpeg.c xvidcap-1.1.7.new/src/xtoffmpeg.c
+--- xvidcap-1.1.7/src/xtoffmpeg.c	2008-05-26 00:01:54.000000000 +0200
++++ xvidcap-1.1.7.new/src/xtoffmpeg.c	2008-10-18 13:03:08.000000000 +0200
+@@ -56,13 +56,13 @@
+ #include "xvidcap-intl.h"
+ 
  // ffmpeg stuff
- #include <ffmpeg/avcodec.h>
- #include <ffmpeg/avformat.h>
--#include <ffmpeg/dsputil.h>
- #include <ffmpeg/swscale.h>
- #include <ffmpeg/rgb2rgb.h>
- #include <ffmpeg/fifo.h>
+-#include <ffmpeg/avcodec.h>
+-#include <ffmpeg/avformat.h>
+-#include <ffmpeg/avdevice.h>
++#include <libavcodec/avcodec.h>
++#include <libavformat/avformat.h>
++#include <libavdevice/avdevice.h>
+ //#include <ffmpeg/dsputil.h>
+-#include <ffmpeg/swscale.h>
+-#include <ffmpeg/rgb2rgb.h>
+-#include <ffmpeg/fifo.h>
++#include <libswscale/swscale.h>
++#include <libswscale/rgb2rgb.h>
++#include <libavutil/fifo.h>
+ #define swscale_isRGB(x) ((x)==PIX_FMT_BGR32 || (x)==PIX_FMT_RGB24 \
+                         || (x)==PIX_FMT_RGB565 || (x)==PIX_FMT_RGB555 \
+                         || (x)==PIX_FMT_RGB8 || (x)==PIX_FMT_RGB4 \
+@@ -1248,7 +1248,7 @@
+     st->codec->flags |= CODEC_FLAG2_FAST;
+     // there is no trellis quantiser in libav* for mjpeg
+     if (st->codec->codec_id != CODEC_ID_MJPEG)
+-        st->codec->flags |= CODEC_FLAG_TRELLIS_QUANT;
++        st->codec->trellis = 1;
+     st->codec->flags &= ~CODEC_FLAG_OBMC;
+     // some formats want stream headers to be seperate
+     if (oc->oformat->flags & AVFMT_GLOBALHEADER)
