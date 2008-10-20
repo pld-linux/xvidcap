@@ -17,7 +17,7 @@ URL:		http://xvidcap.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel
-%{?with_system_ffmpeg:BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806}
+%{?with_system_ffmpeg:BuildRequires:	ffmpeg-devel >= 0.4.9-4.20080930.1}
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel
