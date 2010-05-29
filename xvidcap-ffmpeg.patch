@@ -66,3 +66,13 @@ diff -urN xvidcap-1.1.7/src/xtoffmpeg.c xvidcap-1.1.7.new/src/xtoffmpeg.c
      st->codec->flags &= ~CODEC_FLAG_OBMC;
      // some formats want stream headers to be seperate
      if (oc->oformat->flags & AVFMT_GLOBALHEADER)
+--- xvidcap-1.1.7/src/xtoffmpeg.c	2010-05-29 22:15:55.764497747 +0200
++++ xvidcap-1.1.7.new/src/xtoffmpeg.c	2010-05-29 21:55:21.654498517 +0200
+@@ -61,7 +61,6 @@
+ #include <libavdevice/avdevice.h>
+ //#include <ffmpeg/dsputil.h>
+ #include <libswscale/swscale.h>
+-#include <libswscale/rgb2rgb.h>
+ #include <libavutil/fifo.h>
+ #define swscale_isRGB(x) ((x)==PIX_FMT_BGR32 || (x)==PIX_FMT_RGB24 \
+                         || (x)==PIX_FMT_RGB565 || (x)==PIX_FMT_RGB555 \
