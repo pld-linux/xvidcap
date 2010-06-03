@@ -10,19 +10,19 @@ Release:	4
 Epoch:		1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://dl.sourceforge.net/xvidcap/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/xvidcap/%{name}-%{version}.tar.gz
 # Source0-md5:	b39a682d3ef9fcbf424af771936780e2
 Patch0:		%{name}-ffmpeg.patch
-Patch1:     %{name}-x11.patch
+Patch1:		%{name}-x11.patch
 URL:		http://xvidcap.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel
 %{?with_system_ffmpeg:BuildRequires:	ffmpeg-devel >= 0.4.9-4.20080930.1}
+BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel
-BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
