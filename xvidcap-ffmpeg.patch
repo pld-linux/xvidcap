@@ -76,3 +76,13 @@ diff -urN xvidcap-1.1.7/src/xtoffmpeg.c xvidcap-1.1.7.new/src/xtoffmpeg.c
  #include <libavutil/fifo.h>
  #define swscale_isRGB(x) ((x)==PIX_FMT_BGR32 || (x)==PIX_FMT_RGB24 \
                          || (x)==PIX_FMT_RGB565 || (x)==PIX_FMT_RGB555 \
+--- xvidcap-1.1.7/src/xtoffmpeg.c.org	2010-09-25 14:10:14.913812545 +0200
++++ xvidcap-1.1.7/src/xtoffmpeg.c	2010-09-25 14:10:40.971209831 +0200
+@@ -96,6 +96,7 @@
+                         || (x)==PIX_FMT_YUVJ420P || (x)==PIX_FMT_YUVJ422P \
+                         || (x)==PIX_FMT_YUVJ444P)
+ 
++#define PIX_FMT_RGBA32 PIX_FMT_RGB32
+ #define PIX_FMT_ARGB32 PIX_FMT_RGBA32  /* this is just my personal
+                                         * convenience */
+
